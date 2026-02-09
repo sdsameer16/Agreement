@@ -86,28 +86,56 @@ document.addEventListener('DOMContentLoaded', () => {
             // Convert to blob/url
             const imageMap = canvas.toDataURL("image/png");
 
+            // Convert canvas to Blob for sharing
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+            const file = new File([blob], `Love_Agreement_${userNameInput.value}.png`, { type: 'image/png' });
+
             // Show share options
             shareOptions.classList.remove('hidden');
 
             // Setup download button in the modal
             const downloadBtn = document.querySelector('.download-only');
-            downloadBtn.onclick = () => {
+            const downloadAction = () => {
                 const link = document.createElement('a');
                 link.download = `Love_Agreement_${userNameInput.value}_${valentineNameInput.value}.png`;
                 link.href = imageMap;
                 link.click();
             };
+            downloadBtn.onclick = downloadAction;
 
-            // Setup other 'share' buttons (simulated)
-            document.querySelector('.whatsapp').onclick = () => {
-                alert("To share on WhatsApp, please download the image first and send it! (Direct browser sharing of images is restricted)");
-                downloadBtn.click();
+            // Logic for sharing
+            let isSharing = false;
+            const shareContent = async () => {
+                if (isSharing) return;
+                isSharing = true;
+
+                const shareData = {
+                    title: 'Love Agreement',
+                    text: `Check out this Love Agreement between ${userNameInput.value} and ${valentineNameInput.value}!`,
+                    files: [file]
+                };
+
+                if (navigator.canShare && navigator.canShare(shareData)) {
+                    try {
+                        await navigator.share(shareData);
+                    } catch (err) {
+                        if (err.name !== 'AbortError') {
+                            console.error('Sharing failed:', err);
+                            downloadAction(); // Fallback to download
+                        }
+                    } finally {
+                        isSharing = false;
+                    }
+                } else {
+                    isSharing = false;
+                    alert("Sharing not supported on this browser. Downloading instead.");
+                    downloadAction();
+                }
             };
 
-            document.querySelector('.instagram').onclick = () => {
-                alert("To share on Instagram, download the image and post it to your story!");
-                downloadBtn.click();
-            };
+            // Setup other 'share' buttons
+            document.querySelector('.whatsapp').onclick = shareContent;
+            document.querySelector('.instagram').onclick = shareContent;
 
         } catch (err) {
             console.error(err);
