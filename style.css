@@ -339,98 +339,110 @@ header p {
 /* Responsiveness */
 @media (max-width: 600px) {
     .agreement-card {
-        padding: 25px 15px;
+        padding: 15px 10px;
+        justify-content: space-between;
+        /* Distribute content to fill A4 */
     }
 
     .agreement-content {
-        padding: 0 30px;
+        padding: 0 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
     }
 
     .side-hearts-left,
     .side-hearts-right {
-        display: flex;
-        /* Keep visible on mobile */
-        font-size: 1rem;
-        top: 30px;
-        bottom: 30px;
-        width: 20px;
-    }
-
-    .side-hearts-left {
-        left: 5px;
-    }
-
-    .side-hearts-right {
-        right: 5px;
+        font-size: 0.9rem;
+        top: 20px;
+        bottom: 20px;
+        width: 15px;
     }
 
     .stamp-image-container {
-        margin-bottom: 8px;
+        margin-bottom: 5px;
         padding-bottom: 5px;
+        height: 60px;
+        /* Force small height on mobile */
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .stamp-img {
+        max-height: 100%;
+        width: auto;
     }
 
     .doc-title {
-        font-size: 1.2rem;
-        margin: 5px 0;
+        font-size: 1.1rem;
+        margin: 2px 0;
     }
 
     .doc-intro {
-        font-size: 0.85rem;
-        margin-bottom: 8px;
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+
+    .doc-intro p {
+        margin: 2px 0;
     }
 
     .doc-text {
-        font-size: 0.75rem;
-        line-height: 1.3;
-        margin-bottom: 6px;
+        font-size: 0.7rem;
+        line-height: 1.2;
+        margin-bottom: 4px;
     }
 
     .doc-list {
-        margin-left: 15px;
-        margin-bottom: 8px;
+        margin-left: 10px;
+        margin-bottom: 5px;
     }
 
     .doc-list p {
-        margin-bottom: 4px;
-        font-size: 0.75rem;
+        margin-bottom: 3px;
+        font-size: 0.7rem;
+        line-height: 1.1;
     }
 
     .doc-list p::before {
-        font-size: 0.6rem;
-        margin-right: 5px;
+        font-size: 0.55rem;
+        margin-right: 4px;
     }
 
     .declaration {
-        margin-top: 5px;
-        font-size: 0.75rem;
+        margin-top: 2px;
+        font-size: 0.7rem;
     }
 
     .signatures-section {
-        margin-top: 10px;
-        padding: 0 10px;
+        margin-top: 8px;
+        padding: 0 5px;
     }
 
     .signature-font {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .sig-box .signature-pad {
-        height: 35px;
+        height: 30px;
     }
 
     .sig-label {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
+        padding-top: 2px;
     }
 
     .love-seal {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 
     .contact-info {
-        font-size: 0.7rem;
-        margin-top: 8px;
+        font-size: 0.65rem;
+        margin-top: 5px;
     }
 }
 
