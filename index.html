@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Agreement - Make it Official</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Love Agreement</h1>
+            <p>Make your promise official this Valentine's Week</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="input-group">
+                    <label for="userName">Your Name</label>
+                    <input type="text" id="userName" placeholder="Enter your name">
+                </div>
+                <div class="input-group">
+                    <label for="valentineName">Valentine's Name</label>
+                    <input type="text" id="valentineName" placeholder="Enter their name">
+                </div>
+                <button id="generateBtn" class="primary-btn">Preview Agreement</button>
+            </section>
+
+            <section class="agreement-wrapper" id="agreementWrapper">
+                <div class="agreement-card" id="agreementCard">
+                    <!-- Background Hearts -->
+                    <div class="side-hearts-left">
+                        <span>💕</span><span>💕</span><span>💕</span><span>💕</span><span>💕</span><span>💕</span><span>💕</span>
+                    </div>
+                    <div class="side-hearts-right">
+                        <span>💕</span><span>💕</span><span>💕</span><span>💕</span><span>💕</span><span>💕</span><span>💕</span>
+                    </div>
+
+                    <!-- Stamp Header Image -->
+                    <div class="stamp-image-container">
+                        <img src="stamp.png" alt="India Non Judicial Stamp" class="stamp-img">
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="agreement-content">
+                        <h2 class="doc-title">Love Agreement</h2>
+
+                        <div class="doc-intro">
+                            <p>This agreement is signed between <span id="docUserName" class="intro-field">Your
+                                    Name</span>, and <span id="docValentineName" class="intro-field">Their Name</span>,
+                                on the date of <span class="intro-field">11-02-2026</span></p>
+                        </div>
+
+                        <div class="doc-text">
+                            The above two persons have decided to be together for the rest of their lives and vow to
+                            live together bound by the conditions of love and happiness.
+                        </div>
+
+                        <div class="doc-text" style="text-align: center; font-weight: bold;">
+                            Now, I hereby agree to the following:
+                        </div>
+
+                        <div class="doc-list">
+                            <p>To be your honest, faithful, and loving partner for the rest of my days.</p>
+                            <p>To be a wonderful and adventurous lover in bed every time.</p>
+                            <p>To be your guiding light in the darkness, a warming comfort in the cold, and shoulder to
+                                lean on when life is too much to bear.</p>
+                            <p>To honor, love, and cherish you through all life's adventures - wherever we go, we'll go
+                                together.</p>
+                            <p>To build my dreams around yours and make them a reality.</p>
+                            <p>To be there to catch you if you should stumble, carry you over every threshold, and fall
+                                is love with you every day.</p>
+                            <p>To love you with my whole heart and with a passion that cannot be expressed in any words.
+                            </p>
+                            <p>To be here with you and for you, forever and always.</p>
+                        </div>
+
+                        <div class="declaration">
+                            I hereby agree to abide by these terms and conditions for the rest of my life.
+                        </div>
+
+                        <!-- Signatures -->
+                        <div class="signatures-section">
+                            <div class="sig-box">
+                                <div class="signature-pad">
+                                    <span id="sigUserDisplay" class="signature-font">...</span>
+                                </div>
+                                <div class="sig-label">Signature of Lover</div>
+                            </div>
+                            <div class="love-seal">♥</div>
+                            <div class="sig-box">
+                                <div class="signature-pad">
+                                    <span id="sigValentineDisplay" class="signature-font">...</span>
+                                </div>
+                                <div class="sig-label">Signature of Beloved</div>
+                            </div>
+                        </div>
+                        <div class="contact-info">
+                            For stunning websites like this, contact us at
+                            <a href="mailto:wintagedevelopers4@gmail.com">
+                                wintagedevelopers4@gmail.com
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="actions-section">
+                <button id="sendBtn" class="action-btn">Send Agreement <span class="icon">💌</span></button>
+            </section>
+
+            <!-- Hidden generic sharing options modal/list -->
+            <div id="shareOptions" class="share-options hidden">
+                <h3>Share via:</h3>
+                <div class="share-buttons">
+                    <button class="share-btn whatsapp">WhatsApp</button>
+                    <button class="share-btn instagram">Instagram</button>
+                    <button class="share-btn download-only">Download Image</button>
+                </div>
+                <button id="closeShare" class="close-btn">Close</button>
+            </div>
+
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2026 Wintage Developers</p>
+                <div class="logo-area">
+                    <span>Generated by</span>
+                    <!-- Placeholder for Logo -->
+                    <div class="logo-placeholder">WD</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
