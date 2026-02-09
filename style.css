@@ -115,60 +115,56 @@ header p {
     transform: translateY(-2px);
 }
 
-/* Agreement Card */
+/* Agreement Card - Stamp Paper Replication */
 .agreement-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
 
-    /* Agreement Card - Stamp Paper Replication */
-    .agreement-wrapper {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
+.agreement-card {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 1 / 1.4142;
+    /* Precise A4 Ratio */
+    background: white;
+    padding: 40px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    /* Ensure content stays inside */
+}
 
-    .agreement-card {
-        position: relative;
-        width: 100%;
-        max-width: 650px;
-        aspect-ratio: 1 / 1;
-        /* Instagram square */
-        background: white;
-        padding: 30px;
-        /* Reduced from 40px */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        font-family: 'Times New Roman', Times, serif;
-        color: #000;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        /* Center content vertically for square ratio */
-    }
+/* --- Stamp Header Section (Image Based) --- */
+.stamp-image-container {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px dashed #ccc;
+    padding-bottom: 10px;
+}
 
-    /* --- Stamp Header Section (Image Based) --- */
-    .stamp-image-container {
-        width: 100%;
-        margin-bottom: 10px;
-        /* Reduced from 20px */
-        text-align: center;
-        border-bottom: 2px dashed #ccc;
-        padding-bottom: 10px;
-        /* Reduced from 20px */
-    }
-
-    .stamp-img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        border-radius: 4px;
-        /* Optional slight rounding */
-    }
+.stamp-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
 }
 
 /* --- Agreement Body --- */
 .agreement-content {
-    padding: 0 20px;
+    padding: 0 40px;
+    /* Increased padding to give hearts more space */
     position: relative;
+    flex-grow: 1;
 }
 
 /* Side Hearts Decoration */
@@ -261,9 +257,10 @@ header p {
 
 .doc-list p::before {
     content: '❤';
-    margin-right: 10px;
+    margin-right: 8px;
     color: #e91e63;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    flex-shrink: 0;
 }
 
 .declaration {
@@ -364,15 +361,19 @@ header p {
 
     .side-hearts-left,
     .side-hearts-right {
-        display: none;
-        /* Hide on mobile to save space */
+        display: flex;
+        /* Keep visible on mobile */
+        font-size: 1.2rem;
     }
 }
 
 
 /* Actions Section */
 .actions-section {
+    width: 100%;
     text-align: center;
+    margin-top: 40px;
+    /* Space from the agreement card */
     margin-bottom: 40px;
 }
 
