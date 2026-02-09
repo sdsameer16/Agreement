@@ -128,8 +128,6 @@ header p {
     position: relative;
     width: 100%;
     max-width: 700px;
-    aspect-ratio: 1 / 1.4142;
-    /* Precise A4 Ratio */
     background: white;
     padding: 40px 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -138,8 +136,7 @@ header p {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow: hidden;
-    /* Ensure content stays inside */
+    overflow: visible;
 }
 
 /* --- Stamp Header Section (Image Based) --- */
@@ -363,16 +360,11 @@ header p {
     .stamp-image-container {
         margin-bottom: 5px;
         padding-bottom: 5px;
-        height: 60px;
-        /* Force small height on mobile */
-        display: flex;
-        align-items: center;
-        overflow: hidden;
     }
 
     .stamp-img {
-        max-height: 100%;
-        width: auto;
+        max-width: 100%;
+        height: auto;
     }
 
     .doc-title {
@@ -618,6 +610,94 @@ footer {
     to {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Print Styles */
+@media print {
+    /* Hide all elements except the agreement */
+    body * {
+        visibility: hidden;
+    }
+    
+    .agreement-wrapper, .agreement-wrapper * {
+        visibility: visible;
+    }
+    
+    .agreement-wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .agreement-card {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 1 / 1.4142;
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 30px 20px;
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+    
+    .agreement-content {
+        padding: 0 30px;
+    }
+    
+    .side-hearts-left,
+    .side-hearts-right {
+        display: none; /* Hide decorative hearts for cleaner print */
+    }
+    
+    .contact-info {
+        display: none; /* Hide contact info in print */
+    }
+    
+    /* Ensure text doesn't break across pages */
+    .doc-text, .doc-list p, .declaration {
+        page-break-inside: avoid;
+        orphans: 3;
+        widows: 3;
+    }
+    
+    /* Optimize font sizes for print */
+    .doc-title {
+        font-size: 1.5rem;
+    }
+    
+    .doc-intro {
+        font-size: 0.9rem;
+    }
+    
+    .doc-text {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .doc-list p {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+    
+    .declaration {
+        font-size: 0.8rem;
+    }
+    
+    .signature-font {
+        font-size: 1.4rem;
+    }
+    
+    .sig-label {
+        font-size: 0.8rem;
     }
 }
 
